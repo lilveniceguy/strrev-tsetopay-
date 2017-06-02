@@ -12,7 +12,7 @@ Users data:
 - user2
 - user3
 
-All 3 pass is 1234
+All 3 pass are 1234
 
 This test only contain the login module and page validation.
 
