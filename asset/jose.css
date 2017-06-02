@@ -1,0 +1,30 @@
+#login img{
+  margin: 10px 0;
+}
+#login .center {
+  text-align: center;
+}
+
+#login .login {
+  max-width: 300px;
+	margin: 35px auto;
+}
+
+#login .login-form{
+  padding:0px 25px;
+}
+
+.resultado{
+	border-radius:15px;
+	transition:all .3s ease-in-out;
+	font-size: .7em;
+	text-align: center;
+}
+
+.resultado.box-error{
+	border:1px solid red;
+}
+
+.resultado.box-success{
+	border:1px solid green;
+}
