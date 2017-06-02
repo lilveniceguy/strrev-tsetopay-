@@ -7,6 +7,13 @@ It doens't contain the admin profile and the admin user modules.
 - - cd /strrev_opay
 - - php -S localhost:8001
 
+Users data:
+- user1
+- user2
+- user3
+
+All 3 pass is 1234
+
 This test only contain the login module and page validation.
 
 It uses the FastRoute - Fast request router for PHP
