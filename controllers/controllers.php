@@ -15,15 +15,16 @@ class User {
 			if ($val) {
 				foreach ($val as $data) {
 					if ($data[0]==$_POST['username'] && $data[1]==$_POST['password']) {
+						call_user_func(array($className, 'logIn'),$_POST['username'],$data[2]);
 						$resp = array('msj'=>'Welcome '.$_POST['username'], 'respuesta'=>1, 'page'=>$data[2]);
-						$saveSession=call_user_func(array($className, 'logIn'),$_POST['username'],$data[2]);
+						break;
 					}else{
 						$resp = array('msj'=>'Login Failed', 'respuesta'=>0);
 					}
 				}
+				echo json_encode($resp);
 			}
 		}
-		echo json_encode($resp);
 	}
 
 	function loginOut(){
@@ -47,7 +48,8 @@ class Index {
 			));
 			echo $template->render();
 		}else{ //function if is logged, redirect to the page that belongs
-			header('Location: '.$val);
+			$val = explode('-', $val);
+			header('Location: /pages/'.$val[1]);
 		}
 	}
 }
@@ -62,7 +64,7 @@ class Pages{
 			if (!$val) {
 				header('Location: /');
 			}else{
-				if ('pag-'.$id==$_SESSION['page']) {
+				if ($val=='pag-'.$id) {
 					echo 'Hello '.$_SESSION['username'];
 					echo '<br /><a href="/logout">Exit</a>';
 				}else{
