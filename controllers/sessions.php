@@ -16,7 +16,7 @@ class sessionsVal{
 
 
 	public static function valLog(){
-		$handle = fopen($_SERVER["DOCUMENT_ROOT"] ."/data/users.txt", "r")or die("Unable to open file!");
+		$handle = fopen($_SERVER["DOCUMENT_ROOT"] ."\data\users.txt", "r")or die("Unable to open file!");
 		if ($handle) {
 		    while (($line = fgets($handle)) !== false) {
 		        $userdata[]=explode(',', $line);
@@ -32,7 +32,7 @@ class sessionsVal{
 
 	public static function logIn($usr,$page){
 		$_SESSION['token']=md5(uniqid(rand(), true));
-		$_SESSION['page']=$page;
+		$_SESSION['page']=trim($page);
 		$_SESSION['username']=$usr;
 		$_SESSION['time']=time();
 		return 1;
